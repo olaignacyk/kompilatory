@@ -108,14 +108,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterProgram(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitProgram(this);
-		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -181,14 +173,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitStatement(this);
-		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -269,14 +253,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loadDataStatement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterLoadDataStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitLoadDataStatement(this);
-		}
 	}
 
 	public final LoadDataStatementContext loadDataStatement() throws RecognitionException {
@@ -318,14 +294,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_displayDataStatement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterDisplayDataStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitDisplayDataStatement(this);
-		}
 	}
 
 	public final DisplayDataStatementContext displayDataStatement() throws RecognitionException {
@@ -378,14 +346,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_splitDataStatement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterSplitDataStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitSplitDataStatement(this);
-		}
 	}
 
 	public final SplitDataStatementContext splitDataStatement() throws RecognitionException {
@@ -431,14 +391,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_linearRegressionStatement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterLinearRegressionStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitLinearRegressionStatement(this);
-		}
 	}
 
 	public final LinearRegressionStatementContext linearRegressionStatement() throws RecognitionException {
@@ -484,14 +436,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_modelEvaluationStatement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterModelEvaluationStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitModelEvaluationStatement(this);
-		}
 	}
 
 	public final ModelEvaluationStatementContext modelEvaluationStatement() throws RecognitionException {
@@ -534,14 +478,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_meanStatement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterMeanStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitMeanStatement(this);
-		}
 	}
 
 	public final MeanStatementContext meanStatement() throws RecognitionException {
@@ -583,14 +519,6 @@ public class DataScriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_pointPlotStatement; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).enterPointPlotStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataScriptListener ) ((DataScriptListener)listener).exitPointPlotStatement(this);
-		}
 	}
 
 	public final PointPlotStatementContext pointPlotStatement() throws RecognitionException {
