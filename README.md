@@ -22,37 +22,37 @@ DataScript to język programowania stworzony z myślą o analizie danych, uczeni
 
 ## Przykładowy kod:
 
-# Wczytanie danych z pliku CSV
+### Wczytanie danych z pliku CSV
 dane <- wczytaj_dane("dane.csv")
 
-# Wyświetlenie pierwszych 5 wierszy danych
+### Wyświetlenie pierwszych 5 wierszy danych
 wyswietl(dane, 5)
 
-# Obliczenie średniej wartości w kolumnie "Wiek"
+### Obliczenie średniej wartości w kolumnie "Wiek"
 srednia_wiek <- srednia(dane["Wiek"])
 
-# Wyświetlenie wyniku
+### Wyświetlenie wyniku
 wyswietl("Średni wiek:", srednia_wiek)
 
 
-Modelowanie danych:
-# Podział danych na zbiór treningowy i testowy
+### Modelowanie danych:
+### Podział danych na zbiór treningowy i testowy
 treningowe_dane, testowe_dane <- podzial_danych(dane, proporcja=0.8)
 
-# Utworzenie modelu regresji liniowej
+### Utworzenie modelu regresji liniowej
 model <- regresja_liniowa(treningowe_dane["Wiek"], treningowe_dane["Wynik"])
 
-# Ocena modelu na zbiorze testowym
+### Ocena modelu na zbiorze testowym
 wyniki <- ocena_modelu(model, testowe_dane["Wiek"], testowe_dane["Wynik"])
 
-# Wyświetlenie wyników
+### Wyświetlenie wyników
 wyswietl("Współczynniki regresji:", model.wspolczynniki)
 wyswietl("MSE (Mean Squared Error):", wyniki.MSE)
 wyswietl("R^2 (Coefficient of Determination):", wyniki.R2)
 
 
-Wizualizacja danych:
-# Wykres punktowy wieku w stosunku do wyniku
+### Wizualizacja danych:
+### Wykres punktowy wieku w stosunku do wyniku
 wykres_punktowy(dane["Wiek"], dane["Wynik"], tytul="Zależność wieku od wyniku", x_label="Wiek", y_label="Wynik")
 
 ## Tokeny 
@@ -139,16 +139,16 @@ fragment ESC:
     '\\' (["\\/bfnrt] | UNICODE);
 
 
-##Opis i schemat struktury programu:
+## Opis i schemat struktury programu:
 - ** Kod źródłowy jest wczytywany z pliku.
 - **Przechodzi przez skaner, który przekształca go na tokeny.
 - **Następnie tokeny są analizowane przez parser, który przyporządkowuje je do odpowiednich konstrukcji gramatycznych.
 - **Na podstawie parsowania, generowane są odpowiednie instrukcje w języku Python.
 - **Implementacja w języku Python obejmuje również klasę Listenera, która przetwarza drzewo parsowania i generuje kod w języku Python.
 
- ##Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych
+ ## Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych
 W projekcie wykorzystujemy generator parserów ANTLR oraz język Python.
 
-##Informacje o zastosowaniu specyficznych metod rozwiązania problemu
+## Informacje o zastosowaniu specyficznych metod rozwiązania problemu
 Język DataScript został zaprojektowany z myślą o łatwej analizie danych oraz integracji z istniejącymi narzędziami do analizy danych. Implementacja w oparciu o ANTLR i Pythona umożliwia elastyczne przetwarzanie i generowanie kodu.
 
