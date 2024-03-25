@@ -1,0 +1,32 @@
+# Wczytanie danych z pliku CSV
+dane <- wczytaj_dane("dane.csv")
+
+# Wyświetlenie pierwszych 5 wierszy danych
+wyswietl(dane, 5)
+
+# Obliczenie średniej wartości w kolumnie "Wiek"
+srednia_wiek <- srednia(dane["Wiek"])
+
+# Wyświetlenie wyniku
+wyswietl("Średni wiek:", srednia_wiek)
+
+
+# Modelowanie danych:
+# Podział danych na zbiór treningowy i testowy
+treningowe_dane, testowe_dane <- podzial_danych(dane, proporcja=0.8)
+
+# Utworzenie modelu regresji liniowej
+model <- regresja_liniowa(treningowe_dane["Wiek"], treningowe_dane["Wynik"])
+
+# Ocena modelu na zbiorze testowym
+wyniki <- ocena_modelu(model, testowe_dane["Wiek"], testowe_dane["Wynik"])
+
+# Wyświetlenie wyników
+wyswietl("Współczynniki regresji:", model.wspolczynniki)
+wyswietl("MSE (Mean Squared Error):", wyniki.MSE)
+wyswietl("R^2 (Coefficient of Determination):", wyniki.R2)
+
+
+# Wizualizacja danych:
+# Wykres punktowy wieku w stosunku do wyniku
+wykres_punktowy(dane["Wiek"], dane["Wynik"], tytul="Zależność wieku od wyniku", x_label="Wiek", y_label="Wynik")
