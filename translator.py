@@ -1,11 +1,10 @@
 from antlr4 import *
 from DataScriptLexer import DataScriptLexer
 from DataScriptParser import DataScriptParser
-from DataScriptCustomListener import DataScriptCustomListener
+from DataScriptListener import DataScriptListener
 
 def main():
-    input_file = "example.datascript"  # Plik źródłowy w języku DataScript
-
+    input_file = "example.ds"  # Plik źródłowy w języku DataScript
     # Wczytanie pliku źródłowego
     with open(input_file, "r") as file:
         input_data = file.read()
@@ -26,7 +25,7 @@ def main():
     tree = parser.program()
 
     # Utworzenie obiektu Listenera
-    listener = DataScriptCustomListener()
+    listener = DataScriptListener()
 
     # Przechodzenie po drzewie parsowania i przekazywanie zdarzeń do Listenera
     walker = ParseTreeWalker()
