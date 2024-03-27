@@ -1,35 +1,28 @@
 from antlr4 import *
-from DataScriptLexer import DataScriptLexer
-from DataScriptParser import DataScriptParser
-from DataScriptListener import DataScriptListener
+import sys
 
-def main():
-    input_file = "example.ds"  # Plik źródłowy w języku DataScript
-    # Wczytanie pliku źródłowego
-    with open(input_file, "r") as file:
-        input_data = file.read()
+import sys
 
-    # Utworzenie strumienia wejściowego na podstawie wczytanego tekstu
-    input_stream = InputStream(input_data)
+def translate(input_file, output_file):
 
-    # Utworzenie skanera na podstawie strumienia wejściowego
+    input_stream = FileStream(input_file, encoding='utf-8')
+
     lexer = DataScriptLexer(input_stream)
+    stream = CommonTokenStream(lexer)
+    parser = DataScriptParser(stream)
 
-    # Utworzenie strumienia tokenów na podstawie skanera
-    token_stream = CommonTokenStream(lexer)
-
-    # Utworzenie parsera na podstawie strumienia tokenów
-    parser = DataScriptParser(token_stream)
-
-    # Rozpoczęcie analizy gramatycznej od reguły 'program'
     tree = parser.program()
 
-    # Utworzenie obiektu Listenera
-    listener = DataScriptListener()
+    parse_tree_walker = ParseTreeWalker()
+    listener = DataScriptListenerImpl()
 
-    # Przechodzenie po drzewie parsowania i przekazywanie zdarzeń do Listenera
-    walker = ParseTreeWalker()
-    walker.walk(listener, tree)
+    parse_tree_walker.walk(listener, tree)
 
-if __name__ == '__main__':
-    main()
+    file = open(output_file, "w+", encoding='utf-8')
+    file.write(listener.code)
+    file.close()
+
+
+path = str(sys.argv[1])
+target = str(sys.argv[2])
+translate(path, target)
