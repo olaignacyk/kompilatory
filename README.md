@@ -1,78 +1,68 @@
-## DataScript
-
-DataScript to język programowania stworzony z myślą o analizie danych, uczeniu maszynowym i przetwarzaniu danych. Jest zoptymalizowany pod kątem szybkiego i efektywnego manipulowania dużymi zbiorami danych, a także oferuje narzędzia do wizualizacji i eksploracji danych.
-
- ## Cechy języka:
-
-- ** Prostota i czytelność kodu: Składnia DataScript jest zaprojektowana tak, aby być intuicyjną i czytelną dla użytkowników. Oparta jest na zrozumiałych dla człowieka konstrukcjach, co ułatwia pisanie, zrozumienie i utrzymanie kodu.
-- ** Obsługa danych tabularnych: DataScript oferuje wbudowane mechanizmy do obsługi danych tabularnych, takich jak ramki danych (data frames). Umożliwia to łatwe wczytywanie, manipulowanie i przetwarzanie danych w formie tabelarycznej.
-- ** Bogate biblioteki do analizy danych: Język ten zawiera bogate biblioteki do analizy danych, uczenia maszynowego i przetwarzania statystycznego. Obejmuje to operacje takie jak filtrowanie, grupowanie, agregacja, modelowanie i wizualizacja danych.
-- ** Integracja z narzędziami do analizy danych: DataScript integruje się z popularnymi narzędziami i bibliotekami używanymi w analizie danych, takimi jak NumPy, Pandas, Matplotlib, TensorFlow, scikit-learn itp. Dzięki temu użytkownicy mogą wykorzystać istniejące rozwiązania i biblioteki w swoich projektach.
-- ** Wsparcie dla przetwarzania równoległego i rozproszonego: DataScript oferuje mechanizmy do przetwarzania równoległego i rozproszonego, co pozwala efektywnie przetwarzać duże zbiory danych na wielu procesorach lub w klastrach komputerowych.
-- ** Elastyczność i rozszerzalność: Język ten jest elastyczny i łatwo rozszerzalny. Użytkownicy mogą tworzyć własne funkcje i biblioteki do manipulacji danych, dostosowane do ich konkretnych potrzeb i wymagań.
-- ** Wsparcie dla pracy interaktywnej: DataScript umożliwia pracę w trybie interaktywnym, co pozwala użytkownikom eksplorować dane, testować kod i tworzyć analizy w czasie rzeczywistym.
+### ChinesePyPlus
 
 ## Zalozenie projektu:
-- **Ogólne cele: Stworzenie języka programowania, który ułatwi analizę i przetwarzanie danych, zwłaszcza w dziedzinie analizy danych, uczenia maszynowego i przetwarzania statystycznego.
+- **Ogólne cele: Stworzenie języka programowania w języku chińskim, który jednocześnie swoją składnią poprawia trudności które sprawia programistom składnia Pythona. 
 - **Rodzaj translatora: Kompilator
-- **Planowany wynik działania programu: Kompilator DataScript do języka Python (wynik w postaci pliku .py)
+- **Planowany wynik działania programu: Kompilator ChinesePyPlus do języka Python (wynik w postaci pliku .py)
 - **Planowany język implementacji: Python
 - **Sposób implementacji skanera/parsera: Użycie generatora ANTLR
 
 
 ## Przykładowy kod:
 
-### Wczytanie danych z pliku CSV
-dane <- wczytaj_dane("dane.csv")
 
-### Wyświetlenie pierwszych 5 wierszy danych
-wyswietl(dane, 5)
-
-### Obliczenie średniej wartości w kolumnie "Wiek"
-srednia_wiek <- srednia(dane["Wiek"])
-
-### Wyświetlenie wyniku
-wyswietl("Średni wiek:", srednia_wiek)
-
-
-### Modelowanie danych:
-### Podział danych na zbiór treningowy i testowy
-treningowe_dane, testowe_dane <- podzial_danych(dane, proporcja=0.8)
-
-### Utworzenie modelu regresji liniowej
-model <- regresja_liniowa(treningowe_dane["Wiek"], treningowe_dane["Wynik"])
-
-### Ocena modelu na zbiorze testowym
-wyniki <- ocena_modelu(model, testowe_dane["Wiek"], testowe_dane["Wynik"])
-
-### Wyświetlenie wyników
-wyswietl("Współczynniki regresji:", model.wspolczynniki)
-wyswietl("MSE (Mean Squared Error):", wyniki.MSE)
-wyswietl("R^2 (Coefficient of Determination):", wyniki.R2)
-
-
-### Wizualizacja danych:
-### Wykres punktowy wieku w stosunku do wyniku
-wykres_punktowy(dane["Wiek"], dane["Wynik"], tytul="Zależność wieku od wyniku", x_label="Wiek", y_label="Wynik")
 
 ## Tokeny 
-TKN_LOAD_DATA           :('wczytaj_dane');
-TKN_DISPLAY             :('wyswietl');
-TKN_SPLIT_DATA          :('podzial_danych');
-TKN_LINEAR_REGRESSION   :('regresja_liniowa');
-TKN_MODEL_EVALUATION    :('ocena_modelu');
-TKN_MEAN                :('srednia');
-TKN_POINT_PLOT          :('wykres_punktowy');
-TKN_CSV_FILE            :('dane.csv');
-TKN_PROPORTION          :('proporcja');
-TKN_TITLE               :('tytul');
-TKN_X_LABEL             :('x_label');
-TKN_Y_LABEL             :('y_label');
-TKN_TRAINING_DATA       :('treningowe_dane');
-TKN_TEST_DATA           :('testowe_dane');
-TKN_RESULT              :('wyniki');
-TKN_MSE                 :('MSE');
-TKN_R2                  :('R2');
+TKN_END_LINE            :(';');
+TKN_NUMBER              :('數位');
+TKN_STRING              :('串');
+TKN_BOOL                :('對或錯');
+TKN_LIST                :('列舉');
+TKN_IF                  :('如果');
+TKN_ELSE                :('的');
+TKN_ELIF                :('否則');
+TKN_FOR                 :('給');
+TKN_FROM                :('打');
+TKN_TO                  :('遏');
+TKN_WHILE               :('儘管');
+TKN_NOT                 :('不是');
+TKN_AND                 :('和');
+TKN_OR                  :('或者');
+TKN_FUNCTION            :('功能');
+TKN_RETURN              :('返回');
+TKN_PRINT               :('列印');
+TKN_TRUE                :('真的');
+TKN_FALSE               :('錯誤的');
+TKN_END                 :('結尾');
+TKN_BREAK               :('休息');
+TKN_CONTINUE            :('繼續');
+TKN_PLUS                :'+';
+TKN_MINUS               :'-';
+TKN_MUL                 :'*';
+TKN_DIV                 :'/';
+TKN_POW                 :'^';
+TKN_CONCAT              :'++';
+TKN_ASSIGN              :'<-';
+TKN_G                   :'>';
+TKN_L                   :'<';
+TKN_EQ                  :'=';
+TKN_GEQ                 :'>=';
+TKN_LEQ                 :'<=';
+TKN_NEQ                 :'/=';
+TKN_DOTS                :':';
+TKN_LBRACKET            :'(';
+TKN_RBRACKET            :')';
+TKN_LSQUARE             :'[';
+TKN_RSQUARE             :']';
+TKN_COMMA               :',';
+TKN_LFUNBRACKET         :'{';
+TKN_RFUNBRACKET         :'}';
+TKN_COMMENT             :([#][a-zA-Z_0-9 \t;]*[\n] | '#{'[a-zA-Z_0-9 \t\n;]*'}#');
+TKN_NUMBER_VAL          :[-]?[0-9]+([.][0-9]+)?;
+TKN_STRING_VAL          :'"'[a-zA-Z_0-9!? \t\n;]*'"';
+TKN_VAR_ID              :[a-zA-Z_][a-zA-Z0-9_]*;
+TKN_WHITESPACE          :(' ' | '\t' | '\n') -> skip;
+
 
 
 ## Gramatyka:
@@ -80,63 +70,86 @@ program:
     code EOF;
 
 code:
-    dataManipulationExpression TKN_END_LINE |
-    dataManipulationExpression TKN_END_LINE code |
+    expression TKN_END_LINE |
+    expression TKN_END_LINE code |
     TKN_COMMENT code;
 
-dataManipulationExpression:
-    loadDataExpression |
-    displayDataExpression |
-    splitDataExpression |
-    linearRegressionExpression |
-    modelEvaluationExpression |
-    meanExpression |
-    pointPlotExpression;
+var_type:
+    TKN_NUMBER | TKN_STRING | TKN_BOOL | TKN_LIST;
 
-loadDataExpression:
-    TKN_LOAD_DATA TKN_LBRACKET TKN_CSV_FILE TKN_RBRACKET;
+varDeclaration:
+    var_type TKN_VAR_ID TKN_ASSIGN value;
 
-displayDataExpression:
-    TKN_DISPLAY valueList;
+varAssignment:
+    TKN_VAR_ID TKN_ASSIGN value;
 
-splitDataExpression:
-    TKN_SPLIT_DATA TKN_LBRACKET value COMMA TKN_PROPORTION EQUALS value TKN_RBRACKET;
+functionDeclaration:
+    TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_LFUNBRACKET code TKN_RETURN value TKN_RFUNBRACKET;
 
-linearRegressionExpression:
-    TKN_LINEAR_REGRESSION TKN_LBRACKET value COMMA value TKN_RBRACKET;
+functionCall:
+    TKN_VAR_ID TKN_LBRACKET fullValueList TKN_RBRACKET;
 
-modelEvaluationExpression:
-    TKN_MODEL_EVALUATION TKN_LBRACKET value COMMA value TKN_RBRACKET;
-
-meanExpression:
-    TKN_MEAN TKN_LBRACKET value TKN_RBRACKET;
-
-pointPlotExpression:
-    TKN_POINT_PLOT TKN_LBRACKET value COMMA value COMMA TKN_TITLE EQUALS value COMMA TKN_X_LABEL EQUALS value COMMA TKN_Y_LABEL EQUALS value TKN_RBRACKET;
-
+expression:
+    varDeclaration | varAssignment | printExpression | forLoopExpression | whileLoopExpression | conditionalExpression TKN_END | functionCall | functionDeclaration | TKN_RETURN value;
 value:
-    NUMBER | STRING | VARIABLE_ID;
+    stringExpression | booleanExpression | arithmeticExpression | listExpression |TKN_VAR_ID | functionCall;
+
+stringExpression:
+    stringExpression TKN_CONCAT stringExpression | TKN_STRING_VAL | TKN_VAR_ID | TKN_LBRACKET stringExpression TKN_RBRACKET | functionCall;
+
+booleanExpression:
+    booleanExpression (TKN_AND | TKN_OR) booleanExpression | stringExpression (TKN_EQ | TKN_NEQ) stringExpression |
+    arithmeticExpression (TKN_G | TKN_L | TKN_LEQ | TKN_GEQ | TKN_EQ | TKN_NEQ) arithmeticExpression | TKN_FALSE | TKN_TRUE |
+    TKN_VAR_ID | TKN_NOT booleanExpression | TKN_LBRACKET booleanExpression TKN_RBRACKET | functionCall;
+
+arithmeticExpression:
+    TKN_LBRACKET arithmeticExpression TKN_RBRACKET |
+    arithmeticExpression (TKN_MUL | TKN_DIV | TKN_MOD) arithmeticExpression |
+    arithmeticExpression (TKN_MINUS | TKN_PLUS) arithmeticExpression |
+    TKN_NUMBER_VAL | TKN_VAR_ID | functionCall;
+
+printExpression:
+    TKN_PRINT value | TKN_PRINT TKN_LBRACKET value TKN_RBRACKET;
+
+forLoopExpression:
+    TKN_FOR TKN_VAR_ID TKN_FROM arithmeticExpression TKN_TO arithmeticExpression TKN_LFUNBRACKET loopCode TKN_RFUNBRACKET;
+
+whileLoopExpression:
+    TKN_WHILE booleanExpression TKN_DOTS loopCode TKN_END;
+
+conditionalExpression:
+    TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET|  TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode)TKN_RFUNBRACKET elifExpression elseExpression |
+    TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET elifExpression | TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET elseExpression;
+
+elifExpression:
+    TKN_ELIF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET | elifExpression TKN_ELIF booleanExpression TKN_LFUNBRACKET (code|loopCode)TKN_RFUNBRACKET;
+
+elseExpression:
+    TKN_ELSE TKN_LFUNBRACKET (loopCode|code) TKN_RFUNBRACKET;
+
+listExpression:
+    listValue | listExpression TKN_CONCAT listValue;
+
+listValue:
+    TKN_LSQUARE valueList TKN_RSQUARE;
 
 valueList:
-    value | valueList COMMA value;
+    value | valueList TKN_COMMA value;
 
-NUMBER:
-    ('0'..'9')+;
+fullValueList:
+    TKN_WHITESPACE | valueList;
 
-STRING:
-    '"' (ESC | ~["\\])* '"';
+argList:
+    var_type TKN_VAR_ID | argList TKN_COMMA var_type TKN_VAR_ID;
 
-VARIABLE_ID:
-    [a-zA-Z_][a-zA-Z_0-9]*;
+fullArgList:
+    TKN_WHITESPACE | argList;
 
-TKN_WHITESPACE:
-    (' ' | '\t' | '\n') -> skip;
+loopCode:
+    code | loopCode (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE loopCode |
+    loopCode (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE |
+    (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE loopCode | (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE;
 
-TKN_COMMENT:
-    ('#' .*? '\n' | '//' .*? '\n') -> skip;
-
-fragment ESC:
-    '\\' (["\\/bfnrt] | UNICODE);
 
 
 ## Opis i schemat struktury programu:
@@ -147,8 +160,10 @@ fragment ESC:
 - **Implementacja w języku Python obejmuje również klasę Listenera, która przetwarza drzewo parsowania i generuje kod w języku Python.
 
  ## Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych
-W projekcie wykorzystujemy generator parserów ANTLR oraz język Python.
+ANTLR to generator parserów do czytania, przetwarzania, wykonywania lub tłumaczenia tekstu strukturalnego lub plików binarnych. Jest szeroko stosowany do tworzenia języków, narzędzi i frameworków. Na podstawie gramatyki, ANTLR generuje parser, który może budować i przechodzić przez drzewa parsowania.
 
-## Informacje o zastosowaniu specyficznych metod rozwiązania problemu
-Język DataScript został zaprojektowany z myślą o łatwej analizie danych oraz integracji z istniejącymi narzędziami do analizy danych. Implementacja w oparciu o ANTLR i Pythona umożliwia elastyczne przetwarzanie i generowanie kodu.
+##Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
+ChinesePyPlus to język programowania stworzony z myślą o naszych bratach z Chin których język jest bardzo trudny lecz chciałyśmy docenić jego piękno. Język ten ułatwia pisanie kodu, którego słowa kluczowe są w języku chińskim. 
+
+
 
