@@ -51,13 +51,14 @@ TKN_NUMBER_VAL          :[-]?[0-9]+([.][0-9]+)?;
 TKN_STRING_VAL          :'"'[a-zA-Z_0-9!? \t\n;]*'"';
 TKN_VAR_ID              :[a-zA-Z_][a-zA-Z0-9_]*;
 TKN_WHITESPACE          :(' ' | '\t' | '\n') -> skip;
+TKN_END_OF_FILE         : ':)';
 
 
 
 /* Grammar */
 
 program:
-    code EOF;
+    code TKN_END_OF_FILE EOF;
 
 code:
     expression TKN_END_LINE |
@@ -71,7 +72,7 @@ varDeclaration:
     var_type TKN_VAR_ID TKN_ASSIGN value;
 
 varAssignment:
-    TKN_VAR_ID TKN_ASSIGN value;
+    TKN_VAR_ID TKN_ASSIGN value ;
 
 functionDeclaration:
     TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_LFUNBRACKET code TKN_RETURN value TKN_RFUNBRACKET;
@@ -105,7 +106,7 @@ forLoopExpression:
     TKN_FOR TKN_VAR_ID TKN_FROM arithmeticExpression TKN_TO arithmeticExpression TKN_LFUNBRACKET loopCode TKN_RFUNBRACKET;
 
 whileLoopExpression:
-    TKN_WHILE booleanExpression TKN_DOTS loopCode TKN_END;
+    TKN_WHILE booleanExpression TKN_LFUNBRACKET loopCode TKN_RFUNBRACKET;
 
 conditionalExpression:
     TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET|  TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode)TKN_RFUNBRACKET elifExpression elseExpression |
