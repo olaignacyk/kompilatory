@@ -32,16 +32,17 @@
 	} :)
 
 W pythonie ten kod:
-list=[1,2,4,5]
-idx=0
-while idx<10:
-	if idx==4:
- 		print("numer 4")
-   	elif idx==9:
-    		print("numer 9")
-      	else:
-       		print(idx)
-	 idx+=1
+	
+	list=[1,2,4,5]
+	idx=0
+	while idx<10:
+		if idx==4:
+ 			print("numer 4")
+   		elif idx==9:
+    			print("numer 9")
+      		else:
+       			print(idx)
+	 	idx+=1
 
 
 
