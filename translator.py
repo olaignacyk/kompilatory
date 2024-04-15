@@ -1,20 +1,20 @@
 from antlr4 import *
 import sys
-
-import sys
+from ChinesePyPlus import ChinesePyPlusLexer,ChinesePyPlusParser
+import ChinesePyPlusImpl
 
 def translate(input_file, output_file):
 
     input_stream = FileStream(input_file, encoding='utf-8')
 
-    lexer = DataScriptLexer(input_stream)
+    lexer = ChinesePyPlusLexer(input_stream)
     stream = CommonTokenStream(lexer)
-    parser = DataScriptParser(stream)
+    parser = ChinesePyPlusParser(stream)
 
     tree = parser.program()
 
     parse_tree_walker = ParseTreeWalker()
-    listener = DataScriptListenerImpl()
+    listener = ChinesePyPlusImpl()
 
     parse_tree_walker.walk(listener, tree)
 
