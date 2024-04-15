@@ -1,11 +1,11 @@
 ### ChinesePyPlus
 
 ## Zalozenie projektu:
-- **Ogólne cele: Stworzenie języka programowania w języku chińskim, który jednocześnie swoją składnią poprawia trudności które sprawia programistom składnia Pythona. 
-- **Rodzaj translatora: Kompilator
-- **Planowany wynik działania programu: Kompilator ChinesePyPlus do języka Python (wynik w postaci pliku .py)
-- **Planowany język implementacji: Python
-- **Sposób implementacji skanera/parsera: Użycie generatora ANTLR
+- Ogólne cele: Stworzenie języka programowania w języku chińskim, który jednocześnie swoją składnią poprawia trudności które sprawia programistom składnia Pythona. 
+- Rodzaj translatora: Kompilator
+- Planowany wynik działania programu: Kompilator ChinesePyPlus do języka Python (wynik w postaci pliku .py)
+- Planowany język implementacji: Python
+- Sposób implementacji skanera/parsera: Użycie generatora ANTLR
 
 
 ## Przykładowy kod:
