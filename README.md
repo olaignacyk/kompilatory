@@ -13,9 +13,9 @@
 
 
 ## Tokeny 
-TKN_END_LINE            :(';');
-TKN_NUMBER              :('數位');
-TKN_STRING              :('串');
+TKN_END_LINE            :(';')
+TKN_NUMBER              :('數位')
+TKN_STRING              :('串')
 TKN_BOOL                :('對或錯');
 TKN_LIST                :('列舉');
 TKN_IF                  :('如果');
