@@ -13,55 +13,55 @@
 
 
 ## Tokeny 
-TKN_END_LINE            :(';')
-TKN_NUMBER              :('數位')
-TKN_STRING              :('串')
-TKN_BOOL                :('對或錯');
-TKN_LIST                :('列舉');
-TKN_IF                  :('如果');
-TKN_ELSE                :('的');
-TKN_ELIF                :('否則');
-TKN_FOR                 :('給');
-TKN_FROM                :('打');
-TKN_TO                  :('遏');
-TKN_WHILE               :('儘管');
-TKN_NOT                 :('不是');
-TKN_AND                 :('和');
-TKN_OR                  :('或者');
-TKN_FUNCTION            :('功能');
-TKN_RETURN              :('返回');
-TKN_PRINT               :('列印');
-TKN_TRUE                :('真的');
-TKN_FALSE               :('錯誤的');
-TKN_END                 :('結尾');
-TKN_BREAK               :('休息');
-TKN_CONTINUE            :('繼續');
-TKN_PLUS                :'+';
-TKN_MINUS               :'-';
-TKN_MUL                 :'*';
-TKN_DIV                 :'/';
-TKN_POW                 :'^';
-TKN_CONCAT              :'++';
-TKN_ASSIGN              :'<-';
-TKN_G                   :'>';
-TKN_L                   :'<';
-TKN_EQ                  :'=';
-TKN_GEQ                 :'>=';
-TKN_LEQ                 :'<=';
-TKN_NEQ                 :'/=';
-TKN_DOTS                :':';
-TKN_LBRACKET            :'(';
-TKN_RBRACKET            :')';
-TKN_LSQUARE             :'[';
-TKN_RSQUARE             :']';
-TKN_COMMA               :',';
-TKN_LFUNBRACKET         :'{';
-TKN_RFUNBRACKET         :'}';
-TKN_COMMENT             :([#][a-zA-Z_0-9 \t;]*[\n] | '#{'[a-zA-Z_0-9 \t\n;]*'}#');
-TKN_NUMBER_VAL          :[-]?[0-9]+([.][0-9]+)?;
-TKN_STRING_VAL          :'"'[a-zA-Z_0-9!? \t\n;]*'"';
-TKN_VAR_ID              :[a-zA-Z_][a-zA-Z0-9_]*;
-TKN_WHITESPACE          :(' ' | '\t' | '\n') -> skip;
+- TKN_END_LINE            :(';');
+- TKN_NUMBER              :('數位');
+- TKN_STRING              :('串');
+- TKN_BOOL                :('對或錯');
+- TKN_LIST                :('列舉');
+- TKN_IF                  :('如果');
+- TKN_ELSE                :('的');
+- TKN_ELIF                :('否則');
+- TKN_FOR                 :('給');
+- TKN_FROM                :('打');
+- TKN_TO                  :('遏');
+- TKN_WHILE               :('儘管');
+- TKN_NOT                 :('不是');
+- TKN_AND                 :('和');
+- TKN_OR                  :('或者');
+- TKN_FUNCTION            :('功能');
+- TKN_RETURN              :('返回');
+- TKN_PRINT               :('列印');
+- TKN_TRUE                :('真的');
+- TKN_FALSE               :('錯誤的');
+- TKN_END                 :('結尾');
+- TKN_BREAK               :('休息');
+- TKN_CONTINUE            :('繼續');
+- TKN_PLUS                :'+';
+- TKN_MINUS               :'-';
+- TKN_MUL                 :'*';
+- TKN_DIV                 :'/';
+- TKN_POW                 :'^';
+- TKN_CONCAT              :'++';
+- TKN_ASSIGN              :'<-';
+- TKN_G                   :'>';
+- TKN_L                   :'<';
+- TKN_EQ                  :'=';
+- TKN_GEQ                 :'>=';
+- TKN_LEQ                 :'<=';
+- TKN_NEQ                 :'/=';
+- TKN_DOTS                :':';
+- TKN_LBRACKET            :'(';
+- TKN_RBRACKET            :')';
+- TKN_LSQUARE             :'[';
+- TKN_RSQUARE             :']';
+- TKN_COMMA               :',';
+- TKN_LFUNBRACKET         :'{';
+- TKN_RFUNBRACKET         :'}';
+- TKN_COMMENT             :([#][a-zA-Z_0-9 \t;]*[\n] | '#{'[a-zA-Z_0-9 \t\n;]*'}#');
+- TKN_NUMBER_VAL          :[-]?[0-9]+([.][0-9]+)?;
+- TKN_STRING_VAL          :'"'[a-zA-Z_0-9!? \t\n;]*'"';
+- TKN_VAR_ID              :[a-zA-Z_][a-zA-Z0-9_]*;
+- TKN_WHITESPACE          :(' ' | '\t' | '\n') -> skip;
 
 
 
