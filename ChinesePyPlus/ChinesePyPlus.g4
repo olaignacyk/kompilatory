@@ -1,4 +1,4 @@
-grammar GermanLove;
+grammar ChinesePyPlus;
 
 /* Tokens */
 
@@ -95,7 +95,7 @@ booleanExpression:
 
 arithmeticExpression:
     TKN_LBRACKET arithmeticExpression TKN_RBRACKET |
-    arithmeticExpression (TKN_MUL | TKN_DIV | TKN_MOD) arithmeticExpression |
+    arithmeticExpression (TKN_MUL | TKN_DIV ) arithmeticExpression |
     arithmeticExpression (TKN_MINUS | TKN_PLUS) arithmeticExpression |
     TKN_NUMBER_VAL | TKN_VAR_ID | functionCall;
 
