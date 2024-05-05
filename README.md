@@ -188,11 +188,11 @@ loopCode:
 
 
 ## Opis i schemat struktury programu:
-- ** Kod źródłowy jest wczytywany z pliku.
-- **Przechodzi przez skaner, który przekształca go na tokeny.
-- **Następnie tokeny są analizowane przez parser, który przyporządkowuje je do odpowiednich konstrukcji gramatycznych.
-- **Na podstawie parsowania, generowane są odpowiednie instrukcje w języku Python.
-- **Implementacja w języku Python obejmuje również klasę Listenera, która przetwarza drzewo parsowania i generuje kod w języku Python.
+- Kod źródłowy jest wczytywany z pliku.
+- Przechodzi przez skaner, który przekształca go na tokeny.
+- Następnie tokeny są analizowane przez parser, który przyporządkowuje je do odpowiednich konstrukcji gramatycznych.
+- Na podstawie parsowania, generowane są odpowiednie instrukcje w języku Python.
+- Implementacja w języku Python obejmuje również klasę Listenera, która przetwarza drzewo parsowania i generuje kod w języku Python.
 
  ## Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych
 ANTLR to generator parserów do czytania, przetwarzania, wykonywania lub tłumaczenia tekstu strukturalnego lub plików binarnych. Jest szeroko stosowany do tworzenia języków, narzędzi i frameworków. Na podstawie gramatyki, ANTLR generuje parser, który może budować i przechodzić przez drzewa parsowania.
