@@ -149,17 +149,18 @@ class ChinesePyPlusParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "'+'", "'-'", "'*'", "'/'", "'^'", "'++'", "'<-'", 
-                     "'>'", "'<'", "'='", "'>='", "'<='", "'/='", "':'", 
-                     "'('", "')'", "'['", "']'", "','", "'{'", "'}'", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "':)'" ]
+    literalNames = [ "<INVALID>", "';'", "'\\u6578\\u4F4D'", "'\\u4E32'", 
+                     "'\\u5C0D\\u6216\\u932F'", "'\\u5217\\u8209'", "'\\u5982\\u679C'", 
+                     "'\\u7684'", "'\\u5426\\u5247'", "'\\u7D66'", "'\\u6253'", 
+                     "'\\u904F'", "'\\u5118\\u7BA1'", "'\\u4E0D\\u662F'", 
+                     "'\\u548C'", "'\\u6216\\u8005'", "'\\u529F\\u80FD'", 
+                     "'\\u8FD4\\u56DE'", "'\\u5217\\u5370'", "'\\u771F\\u7684'", 
+                     "'\\u932F\\u8AA4\\u7684'", "'\\u7D50\\u5C3E'", "'\\u4F11\\u606F'", 
+                     "'\\u7E7C\\u7E8C'", "'+'", "'-'", "'*'", "'/'", "'^'", 
+                     "'++'", "'<-'", "'>'", "'<'", "'='", "'>='", "'<='", 
+                     "'/='", "':'", "'('", "')'", "'['", "']'", "','", "'{'", 
+                     "'}'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "':)'" ]
 
     symbolicNames = [ "<INVALID>", "TKN_END_LINE", "TKN_NUMBER", "TKN_STRING", 
                       "TKN_BOOL", "TKN_LIST", "TKN_IF", "TKN_ELSE", "TKN_ELIF", 

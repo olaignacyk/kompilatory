@@ -7,14 +7,14 @@ def translate(input_file, output_file):
 
     input_stream = FileStream(input_file, encoding='utf-8')
 
-    lexer = ChinesePyPlusLexer(input_stream)
+    lexer = ChinesePyPlusLexer.ChinesePyPlusLexer(input_stream)
     stream = CommonTokenStream(lexer)
-    parser = ChinesePyPlusParser(stream)
+    parser = ChinesePyPlusParser.ChinesePyPlusParser(stream)
 
     tree = parser.program()
 
     parse_tree_walker = ParseTreeWalker()
-    listener = ChinesePyPlusImpl()
+    listener = ChinesePyPlusImpl.ChinesePyPlusImpl()
 
     parse_tree_walker.walk(listener, tree)
 
