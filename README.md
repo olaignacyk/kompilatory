@@ -200,5 +200,41 @@ ANTLR to generator parserów do czytania, przetwarzania, wykonywania lub tłumac
 ##Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
 ChinesePyPlus to język programowania stworzony z myślą o naszych bratach z Chin których język jest bardzo trudny lecz chciałyśmy docenić jego piękno. Język ten ułatwia pisanie kodu, którego słowa kluczowe są w języku chińskim. 
 
+## 8. Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
+Język, który stworzyliśmy na potrzeby tego projektu jest językiem ułatwiającym naukę programowania. Poprzez zdefiniowanie słów kluczowych w języku chinskim młodsze osoby nie mają problemu ze zrozumieniem koncepcji ich działania. To rozwiązanie pozwoli dzieciom oswajać się z programowaniem już od najmłodszych lat.
 
 
+## 9. Krótka instrukcja obsługi:
+Na początku musimy pobrać kompletny plik JAR ANTLR. Po stworzeniu pliku .g4 składającego się z opisanych tokenów i gramatyki należy go skompilować w użyciem pobranego wcześniej JAR'a ANTLR. Używamy polecenia:
+
+```java -Xmx500M -cp antlr-4.7.2-complete.jar org.antlr.v4.Tool -Dlanguage=Python3 ChinesePyPlus.g4```
+Aby użyć wygenerowanego pliku Pythona, potrzebujemy naszej własnej klasy Listenera, która dziedziczy z wygenerowanego wcześniej Listenera (jest on nowym elementem projektu ANTLR 4 i został zaprojektowany, aby ułatwić pisanie kodu, który obsługuje zdarzenia z parsera, bez wpływu na zmianę gramatyki i ponownej kompilacji). Po stworzeniu takowej klasy możemy użyć naszego programu. Aby tego dokonać tworzymy prosty skrypt zamieszczony poniżej.
+ ```
+ def translate(input_file, output_file):
+
+    input_stream = FileStream(input_file, encoding='utf-8')
+
+    lexer = ChinesePyPlusLexer(input_stream)
+    stream = CommonTokenStream(lexer)
+    parser = ChinesePyPlusParser(stream)
+
+    tree = parser.program()
+
+    parse_tree_walker = ParseTreeWalker()
+    listener = ChinesePyPlusImpl()
+
+    parse_tree_walker.walk(listener, tree)
+
+    file = open(output_file, "w+", encoding='utf-8')
+    file.write(listener.code)
+    file.close()
+
+
+path = str(sys.argv[1])
+target = str(sys.argv[2])
+translate(path, target)
+```
+
+Kompilator uruchamiamy z konsoli z użyciem polecenia:
+```python translate.py <plik w języku ChinesePyPlus (.txt)> <plik wyjściowy (.py)>```
+Otrzymujemy plik wyjściowy w języku Python, który możemy w dowolny sposób uruchomić.
