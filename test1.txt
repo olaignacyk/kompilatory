@@ -4,12 +4,12 @@
 	
 數位  indeks <- 0;
 
-儘管 indeks < 10{
+儘管 indeks < 10 {
 	
-儘管  indeks = 4{
+儘管  indeks = 4 {
 	列印(jestem 4);
 	}
-否則 indeks=9{
+否則 indeks=9 {
 	列印(jestem 9);
 	}
 

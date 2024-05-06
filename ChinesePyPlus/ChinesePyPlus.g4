@@ -55,10 +55,11 @@ TKN_END_OF_FILE         : ':)';
 
 
 
-/* Grammar */
+/* left= , right=*/
+/*GRAMMAR*/
 
 program:
-    code TKN_END_OF_FILE EOF;
+    code EOF;
 
 code:
     expression TKN_END_LINE |
@@ -72,16 +73,19 @@ varDeclaration:
     var_type TKN_VAR_ID TKN_ASSIGN value;
 
 varAssignment:
-    TKN_VAR_ID TKN_ASSIGN value ;
+    TKN_VAR_ID TKN_ASSIGN value;
 
 functionDeclaration:
-    TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_LFUNBRACKET code TKN_RETURN value TKN_RFUNBRACKET;
+    TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_DOTS code TKN_RETURN value TKN_END_LINE TKN_END |
+    TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_DOTS code TKN_END;
 
 functionCall:
     TKN_VAR_ID TKN_LBRACKET fullValueList TKN_RBRACKET;
 
 expression:
-    varDeclaration | varAssignment | printExpression | forLoopExpression | whileLoopExpression | conditionalExpression TKN_END | functionCall | functionDeclaration | TKN_RETURN value;
+    varDeclaration | varAssignment | printExpression | forLoopExpression | whileLoopExpression |
+    conditionalExpression TKN_END | functionCall | functionDeclaration | TKN_RETURN value;
+
 value:
     stringExpression | booleanExpression | arithmeticExpression | listExpression |TKN_VAR_ID | functionCall;
 
@@ -95,7 +99,7 @@ booleanExpression:
 
 arithmeticExpression:
     TKN_LBRACKET arithmeticExpression TKN_RBRACKET |
-    arithmeticExpression (TKN_MUL | TKN_DIV ) arithmeticExpression |
+    arithmeticExpression (TKN_MUL | TKN_DIV) arithmeticExpression |
     arithmeticExpression (TKN_MINUS | TKN_PLUS) arithmeticExpression |
     TKN_NUMBER_VAL | TKN_VAR_ID | functionCall;
 
@@ -103,20 +107,20 @@ printExpression:
     TKN_PRINT value | TKN_PRINT TKN_LBRACKET value TKN_RBRACKET;
 
 forLoopExpression:
-    TKN_FOR TKN_VAR_ID TKN_FROM arithmeticExpression TKN_TO arithmeticExpression TKN_LFUNBRACKET loopCode TKN_RFUNBRACKET;
+    TKN_FOR TKN_VAR_ID TKN_FROM arithmeticExpression TKN_TO arithmeticExpression TKN_DOTS loopCode TKN_END;
 
 whileLoopExpression:
-    TKN_WHILE booleanExpression TKN_LFUNBRACKET loopCode TKN_RFUNBRACKET;
+    TKN_WHILE booleanExpression TKN_DOTS loopCode TKN_END;
 
 conditionalExpression:
-    TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET|  TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode)TKN_RFUNBRACKET elifExpression elseExpression |
-    TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET elifExpression | TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET elseExpression;
+    TKN_IF booleanExpression TKN_DOTS (code|loopCode) |  TKN_IF booleanExpression TKN_DOTS (code|loopCode) elifExpression elseExpression |
+    TKN_IF booleanExpression TKN_DOTS (code|loopCode) elifExpression | TKN_IF booleanExpression TKN_DOTS (code|loopCode) elseExpression;
 
 elifExpression:
-    TKN_ELIF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET | elifExpression TKN_ELIF booleanExpression TKN_LFUNBRACKET (code|loopCode)TKN_RFUNBRACKET;
+    TKN_ELIF booleanExpression TKN_DOTS (code|loopCode) | elifExpression TKN_ELIF booleanExpression TKN_DOTS (code|loopCode);
 
 elseExpression:
-    TKN_ELSE TKN_LFUNBRACKET (loopCode|code) TKN_RFUNBRACKET;
+    TKN_ELSE TKN_DOTS (loopCode|code);
 
 listExpression:
     listValue | listExpression TKN_CONCAT listValue;
@@ -140,3 +144,9 @@ loopCode:
     code | loopCode (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE loopCode |
     loopCode (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE |
     (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE loopCode | (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE;
+
+
+
+
+
+
