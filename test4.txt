@@ -1,0 +1,32 @@
+# Wyliczanie ciagu fibonacciego
+
+功能 fibonacci(數位 liczba):
+    如果 liczba = 1:
+        返回 0;
+    否則 liczba = 2:
+        返回 1;  
+    的:
+        a <- 0;
+        b <- 1;
+        給 indeks 打 2 遏 liczba:
+            wynik <- a + b;
+            a <- b;
+            b <- a + b;
+        結尾;
+    返回 wynik;
+    結尾;
+結尾;
+
+給 indeks 打 2 遏 10:
+    如果 indeks < 7:
+        列印(fibonacci(indeks));
+    否則 indeks = 9:
+        休息;
+    的:
+        列印(indeks);
+        繼續;
+    結尾;
+結尾;
+
+
+

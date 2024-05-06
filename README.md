@@ -238,3 +238,64 @@ while indeks <= 10:
 	else:
 		print(indeks)	
 ```
+Przyklad z pętlami i funkcją.
+```
+# Wyliczanie ciagu fibonacciego
+
+功能 fibonacci(數位 liczba):
+    如果 liczba = 1:
+        返回 0;
+    否則 liczba = 2:
+        返回 1;  
+    的:
+        a <- 0;
+        b <- 1;
+        給 indeks 打 2 遏 liczba:
+            wynik <- a + b;
+            a <- b;
+            b <- a + b;
+        結尾;
+    返回 wynik;
+    結尾;
+結尾;
+
+給 indeks 打 2 遏 10:
+    如果 indeks < 7:
+        列印(fibonacci(indeks));
+    否則 indeks = 9:
+        休息;
+    的:
+        列印(indeks);
+        繼續;
+    結尾;
+結尾;
+```
+Po skompilowaniu:
+```
+# Wyliczanie ciagu fibonacciego
+
+def fibonacci(liczba):
+	if liczba == 1:
+		return 0
+	elif liczba == 2:
+		return 1
+	else:
+		a = 0
+		b = 1
+		for indeks in range(2, liczba):
+			wynik = a + b
+			a = b
+			b = a + b
+			
+		return wynik
+		
+	
+for indeks in range(2, 10):
+	if indeks < 7:
+		print(fibonacci(indeks))
+	elif indeks == 9:
+		break
+	else:
+		print(indeks)
+		continue
+```
