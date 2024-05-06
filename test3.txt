@@ -1,0 +1,16 @@
+# funkcja obliczajaca pole prostokata
+功能 prostokat(數位 zmienna1, 數位 zmienna2):
+    數位 wynik <- zmienna1* zmienna2;
+    返回 wynik;
+結尾;
+
+# funkcja oblczajaca pole trojkata
+
+功能 trojkat(數位 zmienna1, 數位 zmienna2):
+    數位 wynik <- zmienna1* zmienna2/2;
+    返回 wynik;
+結尾;
+
+列印("Wynik");
+列印(prostokat(2,3));
+列印(trojkat(2,3));

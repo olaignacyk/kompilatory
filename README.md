@@ -1,6 +1,6 @@
 ### ChinesePyPlus
 
-## Zalozenie projektu:
+## 1.Zalozenie projektu:
 - Ogólne cele: Stworzenie języka programowania w języku chińskim, który jednocześnie swoją składnią poprawia trudności które sprawia programistom składnia Pythona. 
 - Rodzaj translatora: Kompilator
 - Planowany wynik działania programu: Kompilator ChinesePyPlus do języka Python (wynik w postaci pliku .py)
@@ -8,46 +8,7 @@
 - Sposób implementacji skanera/parsera: Użycie generatora ANTLR
 
 
-## Przykładowy kod:
-#deklaracja listy
-
-	列舉 lista <- [1,2,4,5]
-	
-	數位  indekx <= 0
-
-	儘管 indeks < 10{
-	
-	如果  indeks = 4{
-		列印(„我是 4”)
-
-	}
-	否則 indeks=9{
-		列印(„我是 9”)
-		}
-
-	的{
-		列印(指數)
-		}
-	indeks<-indeks+1
-	} :)
-
-W pythonie ten kod:
-	
-	list=[1,2,4,5]
-	idx=0
-	while idx<10:
-		if idx==4:
- 			print("numer 4")
-   		elif idx==9:
-    			print("numer 9")
-      		else:
-       			print(idx)
-	 	idx+=1
-
-
-
-
-## Tokeny 
+## 2. Tokeny 
 - TKN_END_LINE            :(';');
 - TKN_NUMBER              :('數位');
 - TKN_STRING              :('串');
@@ -100,7 +61,7 @@ W pythonie ten kod:
 
 
 
-## Gramatyka:
+## 3. Gramatyka:
 program:
     code EOF;
 
@@ -119,13 +80,16 @@ varAssignment:
     TKN_VAR_ID TKN_ASSIGN value;
 
 functionDeclaration:
-    TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_LFUNBRACKET code TKN_RETURN value TKN_RFUNBRACKET;
+    TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_DOTS code TKN_RETURN value TKN_END_LINE TKN_END |
+    TKN_FUNCTION TKN_VAR_ID TKN_LBRACKET fullArgList TKN_RBRACKET TKN_DOTS code TKN_END;
 
 functionCall:
     TKN_VAR_ID TKN_LBRACKET fullValueList TKN_RBRACKET;
 
 expression:
-    varDeclaration | varAssignment | printExpression | forLoopExpression | whileLoopExpression | conditionalExpression TKN_END | functionCall | functionDeclaration | TKN_RETURN value;
+    varDeclaration | varAssignment | printExpression | forLoopExpression | whileLoopExpression |
+    conditionalExpression TKN_END | functionCall | functionDeclaration | TKN_RETURN value;
+
 value:
     stringExpression | booleanExpression | arithmeticExpression | listExpression |TKN_VAR_ID | functionCall;
 
@@ -139,7 +103,7 @@ booleanExpression:
 
 arithmeticExpression:
     TKN_LBRACKET arithmeticExpression TKN_RBRACKET |
-    arithmeticExpression (TKN_MUL | TKN_DIV | TKN_MOD) arithmeticExpression |
+    arithmeticExpression (TKN_MUL | TKN_DIV) arithmeticExpression |
     arithmeticExpression (TKN_MINUS | TKN_PLUS) arithmeticExpression |
     TKN_NUMBER_VAL | TKN_VAR_ID | functionCall;
 
@@ -147,20 +111,20 @@ printExpression:
     TKN_PRINT value | TKN_PRINT TKN_LBRACKET value TKN_RBRACKET;
 
 forLoopExpression:
-    TKN_FOR TKN_VAR_ID TKN_FROM arithmeticExpression TKN_TO arithmeticExpression TKN_LFUNBRACKET loopCode TKN_RFUNBRACKET;
+    TKN_FOR TKN_VAR_ID TKN_FROM arithmeticExpression TKN_TO arithmeticExpression TKN_DOTS loopCode TKN_END;
 
 whileLoopExpression:
     TKN_WHILE booleanExpression TKN_DOTS loopCode TKN_END;
 
 conditionalExpression:
-    TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET|  TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode)TKN_RFUNBRACKET elifExpression elseExpression |
-    TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET elifExpression | TKN_IF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET elseExpression;
+    TKN_IF booleanExpression TKN_DOTS (code|loopCode) |  TKN_IF booleanExpression TKN_DOTS (code|loopCode) elifExpression elseExpression |
+    TKN_IF booleanExpression TKN_DOTS (code|loopCode) elifExpression | TKN_IF booleanExpression TKN_DOTS (code|loopCode) elseExpression;
 
 elifExpression:
-    TKN_ELIF booleanExpression TKN_LFUNBRACKET (code|loopCode) TKN_RFUNBRACKET | elifExpression TKN_ELIF booleanExpression TKN_LFUNBRACKET (code|loopCode)TKN_RFUNBRACKET;
+    TKN_ELIF booleanExpression TKN_DOTS (code|loopCode) | elifExpression TKN_ELIF booleanExpression TKN_DOTS (code|loopCode);
 
 elseExpression:
-    TKN_ELSE TKN_LFUNBRACKET (loopCode|code) TKN_RFUNBRACKET;
+    TKN_ELSE TKN_DOTS (loopCode|code);
 
 listExpression:
     listValue | listExpression TKN_CONCAT listValue;
@@ -187,24 +151,30 @@ loopCode:
 
 
 
-## Opis i schemat struktury programu:
+
+
+
+
+
+
+## 4. Opis i schemat struktury programu:
 -  Kod źródłowy jest wczytywany z pliku.
 - Przechodzi przez skaner, który przekształca go na tokeny.
 - Następnie tokeny są analizowane przez parser, który przyporządkowuje je do odpowiednich konstrukcji gramatycznych.
 - Na podstawie parsowania, generowane są odpowiednie instrukcje w języku Python.
 - Implementacja w języku Python obejmuje również klasę Listenera, która przetwarza drzewo parsowania i generuje kod w języku Python.
 
- ## Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych
+ ## 5. Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych
 ANTLR to generator parserów do czytania, przetwarzania, wykonywania lub tłumaczenia tekstu strukturalnego lub plików binarnych. Jest szeroko stosowany do tworzenia języków, narzędzi i frameworków. Na podstawie gramatyki, ANTLR generuje parser, który może budować i przechodzić przez drzewa parsowania.
 
 ##Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
 ChinesePyPlus to język programowania stworzony z myślą o naszych bratach z Chin których język jest bardzo trudny lecz chciałyśmy docenić jego piękno. Język ten ułatwia pisanie kodu, którego słowa kluczowe są w języku chińskim. 
 
-## 8. Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
+## 6. Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
 Język, który stworzyliśmy na potrzeby tego projektu jest językiem ułatwiającym naukę programowania. Poprzez zdefiniowanie słów kluczowych w języku chinskim młodsze osoby nie mają problemu ze zrozumieniem koncepcji ich działania. To rozwiązanie pozwoli dzieciom oswajać się z programowaniem już od najmłodszych lat.
 
 
-## 9. Krótka instrukcja obsługi:
+## 7. Krótka instrukcja obsługi:
 Na początku musimy pobrać kompletny plik JAR ANTLR. Po stworzeniu pliku .g4 składającego się z opisanych tokenów i gramatyki należy go skompilować w użyciem pobranego wcześniej JAR'a ANTLR. Używamy polecenia:
 
 ```java -Xmx500M -cp antlr-4.7.2-complete.jar org.antlr.v4.Tool -Dlanguage=Python3 ChinesePyPlus.g4```
@@ -214,14 +184,14 @@ Aby użyć wygenerowanego pliku Pythona, potrzebujemy naszej własnej klasy List
 
     input_stream = FileStream(input_file, encoding='utf-8')
 
-    lexer = ChinesePyPlusLexer(input_stream)
+    lexer = ChinesePyPlusLexer.ChinesePyPlusLexer(input_stream)
     stream = CommonTokenStream(lexer)
-    parser = ChinesePyPlusParser(stream)
+    parser = ChinesePyPlusParser.ChinesePyPlusParser(stream)
 
     tree = parser.program()
 
     parse_tree_walker = ParseTreeWalker()
-    listener = ChinesePyPlusImpl()
+    listener = ChinesePyPlusImpl.ChinesePyPlusImpl()
 
     parse_tree_walker.walk(listener, tree)
 
@@ -236,5 +206,35 @@ translate(path, target)
 ```
 
 Kompilator uruchamiamy z konsoli z użyciem polecenia:
-```python translate.py <plik w języku ChinesePyPlus (.txt)> <plik wyjściowy (.py)>```
+```python translator.py <plik w języku ChinesePyPlus (.txt)> <plik wyjściowy (.py)>```
 Otrzymujemy plik wyjściowy w języku Python, który możemy w dowolny sposób uruchomić.
+
+
+## Przykładowy kod:
+```
+數位 lista <- [1,2,4,5];
+數位 indeks <- 0;
+列印(indeks);
+
+儘管 indeks<=10:
+    indeks <- indeks+1;
+    如果 indeks = 4:
+        列印("Jestem 4");
+    的:
+        列印(indeks);
+      結尾;  
+結尾;
+```
+
+W pythonie ten kod:
+```	
+lista = [1, 2, 4, 5]
+indeks = 0
+print(indeks)
+while indeks <= 10:
+	indeks = indeks + 1
+	if indeks == 4:
+		print("Jestem 4")
+	else:
+		print(indeks)	
+```
