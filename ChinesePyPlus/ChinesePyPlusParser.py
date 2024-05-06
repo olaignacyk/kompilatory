@@ -160,7 +160,7 @@ class ChinesePyPlusParser ( Parser ):
                      "'++'", "'<-'", "'>'", "'<'", "'='", "'>='", "'<='", 
                      "'/='", "':'", "'('", "')'", "'['", "']'", "','", "'{'", 
                      "'}'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "':)'" ]
+                     "<INVALID>", "'--'" ]
 
     symbolicNames = [ "<INVALID>", "TKN_END_LINE", "TKN_NUMBER", "TKN_STRING", 
                       "TKN_BOOL", "TKN_LIST", "TKN_IF", "TKN_ELSE", "TKN_ELIF", 

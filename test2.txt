@@ -1,16 +1,7 @@
-功能 fibonacci(n) {
-    數位 a <- 0;
-    數位 b <- 1;
-    數位 counter <- 0;
-    
-    儘管 counter < n {
-        列印(a);
-        數位 temp <- a;
-        a <- b;
-        b <- temp + b;
-        counter <- counter + 1;
-    }
-    返回 a;
-}
+數位 lista <- [1,2,4,5];
+數位 indeks <- 0;
 
-fibonacci(10);
+儘管 indeks<=10:
+
+結尾;
+--

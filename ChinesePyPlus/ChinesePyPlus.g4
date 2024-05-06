@@ -51,7 +51,7 @@ TKN_NUMBER_VAL          :[-]?[0-9]+([.][0-9]+)?;
 TKN_STRING_VAL          :'"'[a-zA-Z_0-9!? \t\n;]*'"';
 TKN_VAR_ID              :[a-zA-Z_][a-zA-Z0-9_]*;
 TKN_WHITESPACE          :(' ' | '\t' | '\n') -> skip;
-TKN_END_OF_FILE         : ':)';
+TKN_END_OF_FILE         : '--';
 
 
 

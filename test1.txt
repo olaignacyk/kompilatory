@@ -1,20 +1,6 @@
-#deklaracja listy
-
 數位 lista <- [1,2,4,5];
-	
-數位  indeks <- 0;
+數位 indeks <- 0;
 
-儘管 indeks < 10 {
-	
-儘管  indeks = 4 {
-	列印(jestem 4);
-	}
-否則 indeks=9 {
-	列印(jestem 9);
-	}
 
-的{
-	列印(indeks);
-	}
-	indeks<-indeks+1;
-} :)
+列印(indeks);
+--
