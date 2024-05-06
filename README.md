@@ -11,24 +11,24 @@
 ## Przykładowy kod:
 #deklaracja listy
 
-	列舉 測試 <- [1,2,4,5]
+	列舉 lista <- [1,2,4,5]
 	
-	數位  指數 <= 0
+	數位  indekx <= 0
 
-	儘管 指數 < 10{
+	儘管 indeks < 10{
 	
-	如果  指數 = 4{
+	如果  indeks = 4{
 		列印(„我是 4”)
 
 	}
-	否則 指數=9{
+	否則 indeks=9{
 		列印(„我是 9”)
 		}
 
 	的{
 		列印(指數)
 		}
-	指數<-指數+1
+	indeks<-indeks+1
 	} :)
 
 W pythonie ten kod:
