@@ -1,7 +1,13 @@
 數位 lista <- [1,2,4,5];
 數位 indeks <- 0;
+列印(indeks);
 
 儘管 indeks<=10:
-
+    indeks <- indeks+1;
+    如果 indeks = 4:
+        列印("Jestem 4");
+    的:
+        列印(indeks);
+      結尾;  
 結尾;
---
+--;
