@@ -209,6 +209,11 @@ Kompilator uruchamiamy z konsoli z użyciem polecenia:
 ```python translator.py <plik w języku ChinesePyPlus (.txt)> <plik wyjściowy (.py)>```
 Otrzymujemy plik wyjściowy w języku Python, który możemy w dowolny sposób uruchomić.
 
+Dodatkowo został stworzony interfejs graficzny. Uruchamiamy go z konsoli z uzyciem polecenia:
+``` python interface.py``` . 
+Na ekarnie pojawia się interfejs gdzie widoczne są dwa okienka. 
+W lewym oknie wpisujemy kod w języku ChinesePyPlus i po naciśnięciu przycisku "TRANSLATE" w prawym oknie pojawia się kod w języku Python. 
+
 
 ## Przykładowy kod:
 ```
