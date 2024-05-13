@@ -26,7 +26,7 @@ class ChinesePyPlusGUI:
         self.create_widgets()
 
     def create_widgets(self):
-        self.input_label = Label(self.root, text="Input")
+        self.input_label = Label(self.root, text="Input-ChinesePyPlus")
         self.input_label.grid(row=0, column=0, padx=5, pady=5)
 
         self.input_text = scrolledtext.ScrolledText(self.root, width=70, height=30, wrap=WORD)
@@ -41,7 +41,7 @@ class ChinesePyPlusGUI:
         self.output_text = scrolledtext.ScrolledText(self.root, width=70, height=30, wrap=WORD)
         self.output_text.grid(row=1, column=1, padx=5, pady=5)
 
-        self.error_label = Label(self.root, text="Errors")
+        self.error_label = Label(self.root, text="Message")
         self.error_label.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
 
         self.error_text = scrolledtext.ScrolledText(self.root, width=100, height=5, wrap=WORD)
@@ -78,7 +78,8 @@ class ChinesePyPlusGUI:
             listener = ChinesePyPlusImpl.ChinesePyPlusImpl()
             walker = ParseTreeWalker()
             walker.walk(listener, tree)
-            return listener.code, ""
+            error_messages = "OK"
+            return listener.code, error_messages
 
     def annotate_errors(self, code, errors):
         lines = code.split('\n')
