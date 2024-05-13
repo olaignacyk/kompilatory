@@ -85,7 +85,7 @@ class ChinesePyPlusGUI:
         lines = code.split('\n')
         for line, column, msg in errors:
             if line - 1 < len(lines) and column - 1 < len(lines[line - 1]):
-                lines[line - 1] = lines[line - 1][:column - 1] + '->' + lines[line - 1][column - 1:]
+                lines[line - 2] = "->"+lines[line - 2][:column - 1] 
         return '\n'.join(lines)
 
 
